@@ -1,0 +1,17 @@
+<body>
+    <html><table>
+    <th>
+        <td style="border: 1px solid blueviolet;">Name</td>
+        <td style="border: 1px solid blueviolet;">Loan_term</td>
+        <td style="border: 1px solid blueviolet;">Loan_balance</td>
+    </th>
+    <tr>{% for loan in loans %}</tr>
+    
+        <td style="border: 1px solid blueviolet;">{{ loan.name }}</td>
+        <td style="border: 1px solid blueviolet;">{{ loan.loan_term }}</td>
+        <td style="border: 1px solid blueviolet;">{{ loan.loan_balance }}</td>
+    {% endfor %}
+</table>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<body>
+    <html><table>
+    <th>
+        <td style="border: 1px solid blueviolet;">Name</td>
+        <td style="border: 1px solid blueviolet;">Message</td>
+        <td style="border: 1px solid blueviolet;">DateandTime</td>
+    </th>
+    <tr>{% for notification in notifications %}</tr>
+    
+        <td style="border: 1px solid blueviolet;">{{ notification.name }}</td>
+        <td style="border: 1px solid blueviolet;">{{ notification.message }}</td>
+        <td style="border: 1px solid blueviolet;">{{ notification.dateandtime }}</td>
+    {% endfor %}
+</table>
+
+</body>
+</html>

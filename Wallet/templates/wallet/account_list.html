@@ -1,0 +1,17 @@
+<body>
+    <html>
+    <table>
+    <th>
+        <td style="border: 1px solid blueviolet;">Account_name</td>
+        <td style="border: 1px solid blueviolet;">Account_number</td>
+        <td style="border: 1px solid blueviolet;">Balance</td>
+    </th>
+    <tr>{% for account in accounts %}</tr>
+    
+        <td style="border: 1px solid blueviolet;">{{ account.account_name }}</td>
+        <td style="border: 1px solid blueviolet;">{{ account.account_number }}</td>
+        <td style="border: 1px solid blueviolet;">{{ account.balance }}</td>
+    {% endfor %}
+</table>
+</body>
+</html>

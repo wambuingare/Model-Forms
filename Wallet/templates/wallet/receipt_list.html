@@ -1,0 +1,17 @@
+<body>
+    <html><table>
+    <th>
+        <td style="border: 1px solid blueviolet;">First_name</td>
+        <td style="border: 1px solid blueviolet;">Amount</td>
+        <td style="border: 1px solid blueviolet;">DateTime</td>
+    </th>
+    <tr>{% for receipt in receipts %}</tr>
+    
+        <td style="border: 1px solid blueviolet;">{{ receipt.first_name }}</td>
+        <td style="border: 1px solid blueviolet;">{{ receipt.amount }}</td>
+        <td style="border: 1px solid blueviolet;">{{ receipt.datetime }}</td>
+    {% endfor %}
+</table>
+
+</body>
+</html>

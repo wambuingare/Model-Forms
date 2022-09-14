@@ -1,0 +1,17 @@
+<body>
+    <html>
+    <table>
+    <th>
+    <td style="border: 2px solid blueviolet;" >First_Name</td>
+        <td style="border: 2px solid blueviolet;">Age</td>
+        <td style="border: 2px solid blueviolet;">Email</td>
+    </th>
+    <tr>{% for customer in customers %}</tr>
+    
+        <td style="border: 2px solid blueviolet;">{{ customer.first_name }}</td>
+        <td style="border: 2px solid blueviolet;">{{ customer.age }}</td>
+        <td style="border: 2px solid blueviolet;">{{ customer.email }}</td>
+    {% endfor %}
+</table>
+</body>
+</html>

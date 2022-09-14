@@ -1,0 +1,20 @@
+<body>
+    <html><table>
+    <th>
+        <td style="border: 1px solid blueviolet;">Origin</td>
+        <td style="border: 1px solid blueviolet;">Bonus_Credit</td>
+        <td style="border: 1px solid blueviolet;">Transation_reference</td>
+       
+    </th>
+    <tr>{% for transaction in transactions %}</tr>
+   
+        <td style="border: 1px solid blueviolet;">{{ transaction.origin }}</td>
+        <td style="border: 1px solid blueviolet;">{{ transaction.bonus_Credit }}</td>
+        <td style="border: 1px solid blueviolet;">{{ transaction.transaction_reference }}</td>
+    {% endfor %}
+ </table>
+ </body>
+ </html>
+  
+ 
+ 

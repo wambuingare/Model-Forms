@@ -1,0 +1,18 @@
+<body>
+    <html><table>
+    <th>
+        <td style="border: 1px solid blueviolet;">Name</td>
+        <td style="border: 1px solid blueviolet;">Account</td>
+        <td style="border: 1px solid blueviolet;">Location</td>
+       
+    </th>
+    <tr>{% for thirdparty in thirdparties %}</tr>
+   
+        <td style="border: 1px solid blueviolet;">{{ thirdparty.name }}</td>
+        <td style="border: 1px solid blueviolet;">{{ thirdparty.account }}</td>
+        <td style="border: 1px solid blueviolet;">{{ thirdparty.location }}</td>
+    {% endfor %}
+ </table>
+  
+ </body>
+ </html>

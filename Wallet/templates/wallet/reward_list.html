@@ -1,0 +1,18 @@
+<body>
+    <html><table>
+    <th>
+        <td style="border: 1px solid blueviolet;">Recipient</td>
+        <td style="border: 1px solid blueviolet;">wallet</td>
+        <td style="border: 1px solid blueviolet;">Points</td>
+       
+    </th>
+    <tr>{% for reward in rewards %}</tr>
+   
+        <td style="border: 1px solid blueviolet;">{{ reward.recipient }}</td>
+        <td style="border: 1px solid blueviolet;">{{ reward.wallet }}</td>
+        <td style="border: 1px solid blueviolet;">{{ reward.points }}</td>
+    {% endfor %}
+ </table>
+  
+ </body>
+ </html>
