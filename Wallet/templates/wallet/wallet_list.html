@@ -1,16 +1,17 @@
 <body>
-    <html><table>
-    <th>
-        <td style="border: 1px solid blueviolet;">Customer</td>
-        <td style="border: 1px solid blueviolet;">Balance</td>
-        <td style="border: 1px solid blueviolet;">Data_created</td>
+    <html>
+        <table style="width: 600px; height: 300px; margin:auto;">
+    
+        <td style="border: 1px solid blueviolet; font-weight: bold;">Customer</td>
+        <td style="border: 1px solid blueviolet; font-weight: bold;">Balance</td>
+        <td style="border: 1px solid blueviolet; font-weight: bold;">Date_created</td>
        
     </th>
     <tr>{% for wallet in wallets %}</tr>
    
         <td style="border: 1px solid blueviolet;">{{ wallet.customer }}</td>
         <td style="border: 1px solid blueviolet;">{{ wallet.balance }}</td>
-        <td style="border: 1px solid blueviolet;">{{ wallet.data_created }}</td>
+        <td style="border: 1px solid blueviolet;">{{ wallet.date_created }}</td>
     {% endfor %}
  </table>
   

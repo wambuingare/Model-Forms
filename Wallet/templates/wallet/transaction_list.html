@@ -1,0 +1,22 @@
+<body>
+    <html>
+        <table style="width: 600px; height: 300px; margin:auto;">
+    
+        <td style="border: 1px solid blueviolet; font-weight: bold;">Origin</td>
+        <td style="border: 1px solid blueviolet; font-weight: bold;">Bonus_credit</td>
+        <td style="border: 1px solid blueviolet; font-weight: bold;">Transation_amount</td>
+       
+    </th>
+    <tr>{% for transaction in transactions %}</tr>
+   
+        <td style="border: 1px solid blueviolet;">{{ transaction.origin}}</td>
+        <td style="border: 1px solid blueviolet;">{{ transaction.bonus_credit }}</td>
+        <td style="border: 1px solid blueviolet;">{{ transaction.transaction_amount }}</td>
+    {% endfor %}
+ </table>
+
+ </body>
+ </html>
+  
+ 
+ 

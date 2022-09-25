@@ -97,7 +97,7 @@ def register_notification(request):
 
 def list_notification(request):
     notifications=Notification.objects.all()
-    return render(request,"wallet/notification_list.html",{'notification':notifications})
+    return render(request,"wallet/notification_list.html",{'notifications':notifications})
 
 def register_receipt(request):
       if request.method=="POST":

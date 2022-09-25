@@ -1,15 +1,16 @@
 <body>
-    <html><table>
-    <th>
-        <td style="border: 1px solid blueviolet;">Cardholder_name</td>
-        <td style="border: 1px solid blueviolet;">Expiry_date</td>
-        <td style="border: 1px solid blueviolet;">Date_issued</td>
+    <html>
+        <table style="width: 600px; height: 300px; margin:auto;">
+    
+        <td style="border: 1px solid blueviolet;font-weight: bold;">Cardholder_name</td>
+        <td style="border: 1px solid blueviolet;font-weight: bold;">Expiry_date</td>
+        <td style="border: 1px solid blueviolet;font-weight: bold;">DateIssued</td>
     </th>
     <tr>{% for card in cards %}</tr>
     
         <td style="border: 1px solid blueviolet;">{{ card.cardholder_name }}</td>
         <td style="border: 1px solid blueviolet;">{{ card.expiry_date }}</td>
-        <td style="border: 1px solid blueviolet;">{{ card.date_issued }}</td>
+        <td style="border: 1px solid blueviolet;">{{ card.dateIssued }}</td>
     {% endfor %}
 </table>
 
