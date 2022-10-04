@@ -5,13 +5,17 @@
     <td style="border: 2px solid blueviolet;font-weight: bold;" >First_Name</td>
         <td style="border: 2px solid blueviolet;font-weight: bold;">Age</td>
         <td style="border: 2px solid blueviolet;font-weight: bold;">Email</td>
+        <td style="border: 2px solid blueviolet;font-weight: bold;">Profile</td>
     </th>
     <tr>{% for customer in customers %}</tr>
     
         <td style="border: 2px solid blueviolet;">{{ customer.first_name }}</td>
         <td style="border: 2px solid blueviolet;">{{ customer.age }}</td>
         <td style="border: 2px solid blueviolet;">{{ customer.email }}</td>
+        <td style="border: 2px solid blueviolet;"><a href="{%url 'customer_profile' id=customer.id%}">view profile</a></td>
     {% endfor %}
+    
+   
 </table>
 </body>
 </html>

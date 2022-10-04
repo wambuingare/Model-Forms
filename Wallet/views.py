@@ -1,13 +1,12 @@
-from ast import If
-from atexit import register
-from django.shortcuts import render
+
+from django.shortcuts import redirect, render
 from .models import Account, Card, Customer, Loan, Notification, Receipt, Reward, ThirdParty, Transaction, Wallet
 from .forms import AccountRegistrationForm, CardRegistrationForm, CustomerRegistrationForm, LoanRegistrationForm, NotificationRegistrationForm, ReceiptRegistrationForm, RewardRegistrationForm, ThirdpartyRegistrationForm, TransactionRegistrationForm,WalletRegistrationForm
 
 # Create your views here.
 def register_customer(request):
     if request.method=="POST":
-        form =CustomerRegistrationForm(register.POST)
+        form =CustomerRegistrationForm(request.POST)
         if form.is_valid():
             form.save();
         
@@ -20,9 +19,25 @@ def list_customer(request):
     return render(request,"wallet/customer_list.html",{'customers':customers})
 
 
+def customer_profile(request,id):
+    customer = Customer.objects.get(id=id)
+    return render(request,"wallet/customer_profile.html",{'customers':customer})
+ 
+
+def edit_profile(request,id):
+    customer=Customer.objects.get(id=id)
+    if request.method=="POST":
+        form=CustomerRegistrationForm(request.POST,instance=customer)
+        if form.is_valid():
+           form.save()
+           return redirect("wallet/customer_profile",id=customer)
+    else:
+          form=CardRegistrationForm(instance=Customer)
+          return render(request,"edit_profile.html",{"form":form})
+              
 def register_wallet(request):
     if request.method=="POST":
-        form=WalletRegistrationForm(register.POST)
+        form=WalletRegistrationForm(request.POST)
         if form.is_valid():
             form.save();
 
@@ -36,7 +51,7 @@ def list_wallet(request):
     
 def register_account(request):
     if request.method=="POST":
-       form = AccountRegistrationForm(register.POST)
+       form = AccountRegistrationForm(request.POST)
        if form.is_valid():
             form.save();
     else:           
@@ -49,7 +64,7 @@ def list_account(request):
 
 def register_transaction(request):
     if request.method=="POST":
-        form = TransactionRegistrationForm(register.POST)
+        form = TransactionRegistrationForm(request.POST)
         if form.is_valid():
             form.save();
     else:   
@@ -62,7 +77,7 @@ def list_transaction(request):
 
 def register_card(request):
     if request.method=="POST":
-            form=CardRegistrationForm(register.POST)
+            form=CardRegistrationForm(request.POST)
             if form.is_valid():
                 form.save();
     else:        
@@ -75,7 +90,7 @@ def list_card(request):
 
 def register_thirdparty(request):
      if request.method=="POST":
-            form=ThirdpartyRegistrationForm(register.POST)
+            form=ThirdpartyRegistrationForm(request.POST)
             if form.is_valid():
                 form.save();
      else:
@@ -88,7 +103,7 @@ def list_thirdparty(request):
 
 def register_notification(request):
       if request.method=="POST":
-            form = NotificationRegistrationForm(register.POST) 
+            form = NotificationRegistrationForm(request.POST) 
             if form.is_valid():
                 form.save();
       else:  
@@ -101,7 +116,7 @@ def list_notification(request):
 
 def register_receipt(request):
       if request.method=="POST":
-           form = ReceiptRegistrationForm(register.POST)
+           form = ReceiptRegistrationForm(request.POST)
            if form.is_valid():
              form.save();
       else:
@@ -114,7 +129,7 @@ def list_receipt(request):
 
 def register_loan(request):
     if request.method=="POST":
-       form = LoanRegistrationForm(register.POST)
+       form = LoanRegistrationForm(request.POST)
        if form.is_valid():
         form.save();
 
@@ -128,7 +143,7 @@ def list_loan(request):
 
 def register_reward(request):
     if request.method=="POST":
-       form = RewardRegistrationForm(register.POST)
+       form = RewardRegistrationForm(request.POST)
        if form.is_valid():
         form.save();
 

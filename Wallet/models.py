@@ -9,8 +9,16 @@ class Customer(models.Model):
      last_name = models.CharField(max_length=10,null=True)
      address = models.TextField(null=True)
      email = models.EmailField(null=True)
+     profile_picture=models.ImageField(upload_to='profile_pictures/',null=True)
      phonenumber = models.CharField(max_length=10,null=True)
      age = models.PositiveSmallIntegerField(null=True)
+     GENDER_CHOICES =(
+        ('M', 'Male'),
+        ('F', 'Female'),
+    )
+     gender = models.CharField(max_length=2, choices=GENDER_CHOICES, null=True)
+     nationality =models.CharField(max_length=30)
+     occupation=models.CharField(max_length=30)
    
      
      
