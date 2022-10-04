@@ -49,6 +49,23 @@ def list_wallet(request):
     wallets=Wallet.objects.all()
     return render(request,"wallet/wallet_list.html",{'wallets':wallets})
     
+
+def wallet_profile(request,id):
+    wallet = Wallet.objects.get(id=id)
+    return render(request,"wallet/wallet_profile.html",{'wallets':wallet})
+ 
+
+def edit_wallet(request,id):
+    wallet=Wallet.objects.get(id=id)
+    if request.method=="POST":
+        form=WalletRegistrationForm(request.POST,instance=wallet)
+        if form.is_valid():
+           form.save()
+           return redirect("wallet/wallet_profile",id=wallet)
+    else:
+          form=CardRegistrationForm(instance=Wallet)
+          return render(request,"edit_wallet.html",{"form":form})
+              
 def register_account(request):
     if request.method=="POST":
        form = AccountRegistrationForm(request.POST)
@@ -62,6 +79,23 @@ def list_account(request):
     accounts=Account.objects.all()
     return render(request,"wallet/account_list.html",{'accounts':accounts})
 
+
+def account_profile(request,id):
+    account = Account.objects.get(id=id)
+    return render(request,"wallet/account_profile.html",{'accounts':account})
+ 
+
+def edit_profile(request,id):
+    account=Account.objects.get(id=id)
+    if request.method=="POST":
+        form=AccountRegistrationForm(request.POST,instance=account)
+        if form.is_valid():
+           form.save()
+           return redirect("wallet/account_profile",id=account)
+    else:
+          form=CardRegistrationForm(instance=Account)
+          return render(request,"edit_profile.html",{"form":form})
+              
 def register_transaction(request):
     if request.method=="POST":
         form = TransactionRegistrationForm(request.POST)
@@ -75,6 +109,22 @@ def list_transaction(request):
     transactions=Transaction.objects.all()
     return render(request,"wallet/transaction_list.html",{'transactions':transactions})
 
+def transaction_profile(request,id):
+    customer = Customer.objects.get(id=id)
+    return render(request,"wallet/transaction_profile.html",{'transactions':transactions})
+ 
+
+def edit_profile(request,id):
+    transaction=Transaction.objects.get(id=id)
+    if request.method=="POST":
+        form=TransactionRegistrationForm(request.POST,instance=transaction)
+        if form.is_valid():
+           form.save()
+           return redirect("wallet/transaction_profile",id=transaction)
+    else:
+          form=CardRegistrationForm(instance=Transaction)
+          return render(request,"edit_profile.html",{"form":form})
+              
 def register_card(request):
     if request.method=="POST":
             form=CardRegistrationForm(request.POST)
@@ -87,6 +137,24 @@ def register_card(request):
 def list_card(request):
     cards=Card.objects.all()
     return render(request,"wallet/card_list.html",{'cards':cards})
+
+
+def card_profile(request,id):
+    card = Card.objects.get(id=id)
+    return render(request,"wallet/card_profile.html",{'cards':card})
+ 
+
+def edit_profile(request,id):
+    card=Card.objects.get(id=id)
+    if request.method=="POST":
+        form=CardRegistrationForm(request.POST,instance=card)
+        if form.is_valid():
+           form.save()
+           return redirect("wallet/card_profile",id=card)
+    else:
+          form=CardRegistrationForm(instance=Card)
+          return render(request,"edit_profile.html",{"form":form})
+
 
 def register_thirdparty(request):
      if request.method=="POST":
@@ -127,6 +195,23 @@ def list_receipt(request):
     receipts=Receipt.objects.all()
     return render(request,"wallet/receipt_list.html",{'receipts':receipts})
 
+
+def receipt_profile(request,id):
+    receipt = Receipt.objects.get(id=id)
+    return render(request,"wallet/receipt_profile.html",{'receipts':receipts})
+ 
+
+def edit_profile(request,id):
+    receipt=Receipt.objects.get(id=id)
+    if request.method=="POST":
+        form=ReceiptRegistrationForm(request.POST,instance=receipt)
+        if form.is_valid():
+           form.save()
+           return redirect("wallet/receipt_profile",id=receipt)
+    else:
+          form=CardRegistrationForm(instance=Receipt)
+          return render(request,"edit_profile.html",{"form":form})
+              
 def register_loan(request):
     if request.method=="POST":
        form = LoanRegistrationForm(request.POST)

@@ -1,4 +1,6 @@
-from .views import customer_profile, edit_profile, list_account, list_card, list_customer, list_loan, list_notification, list_receipt, list_reward, list_thirdparty, list_transaction, list_wallet, register_account, register_card, register_customer, register_loan, register_notification, register_receipt, register_reward, register_thirdparty, register_transaction,register_wallet
+from mimetypes import init
+from Wallet.models import Wallet
+from .views import account_profile, card_profile, customer_profile, edit_profile, edit_wallet, list_account, list_card, list_customer, list_loan, list_notification, list_receipt, list_reward, list_thirdparty, list_transaction, list_wallet, receipt_profile, register_account, register_card, register_customer, register_loan, register_notification, register_receipt, register_reward, register_thirdparty, register_transaction,register_wallet, transaction_profile, wallet_profile
 from django.urls import path
 from django.contrib import admin  
 from django.urls import path  
@@ -35,7 +37,14 @@ urlpatterns = [
 
     path("customers/<int:id>/",customer_profile,name="customer_profile"),
     path("customers/edit/<init:id/",edit_profile,name="edit_profile"),
-    path('admin/', admin.site.urls),  
+    path("wallets/<int:id>/",wallet_profile,name="wallet_profile"),
+    path("wallets/edit/<init:id/",edit_wallet,name="edit_wallet"),
+    path("accounts/<int:id>/",account_profile,name="account_profile"),
+    path("accounts/edit/<init:id/",edit_profile,name="edit_account"),
+    path("cards/<int:id>/",card_profile,name="card_profile"),
+    path("transactions/<int:id>/",transaction_profile,name="transaction_profile"),
+    path("receipts/<int:id>/",receipt_profile,name="receipt_profile"),
+
 
 
   
