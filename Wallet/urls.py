@@ -1,6 +1,6 @@
-from mimetypes import init
+
 from Wallet.models import Wallet
-from .views import account_profile, card_profile, customer_profile, edit_profile, edit_wallet, list_account, list_card, list_customer, list_loan, list_notification, list_receipt, list_reward, list_thirdparty, list_transaction, list_wallet, receipt_profile, register_account, register_card, register_customer, register_loan, register_notification, register_receipt, register_reward, register_thirdparty, register_transaction,register_wallet, transaction_profile, wallet_profile
+from .views import account_profile, edit_card,card_profile, customer_profile, edit_account, edit_notification, edit_profile, edit_receipt, edit_wallet, list_account, list_card, list_customer, list_loan, list_notification, list_receipt, list_reward, list_thirdparty, list_transaction, list_wallet, notification_profile, receipt_profile, register_account, register_card, register_customer, register_loan, register_notification, register_receipt, register_reward, register_thirdparty, register_transaction,register_wallet, transaction_profile, wallet_profile
 from django.urls import path
 from django.contrib import admin  
 from django.urls import path  
@@ -38,14 +38,15 @@ urlpatterns = [
     path("customers/<int:id>/",customer_profile,name="customer_profile"),
     path("customers/edit/<init:id/",edit_profile,name="edit_profile"),
     path("wallets/<int:id>/",wallet_profile,name="wallet_profile"),
-    path("wallets/edit/<init:id/",edit_wallet,name="edit_wallet"),
+    path("wallet/edit/<init:id/",edit_wallet,name="edit_wallet"),
     path("accounts/<int:id>/",account_profile,name="account_profile"),
-    path("accounts/edit/<init:id/",edit_profile,name="edit_account"),
+    path("account/edit/<int:id/",edit_account,name="edit_account"),
     path("cards/<int:id>/",card_profile,name="card_profile"),
+    path("card/<edit/<int:id/",edit_card,name="edit_card"),
     path("transactions/<int:id>/",transaction_profile,name="transaction_profile"),
     path("receipts/<int:id>/",receipt_profile,name="receipt_profile"),
-
-
-
+    path("receipt/edit/<int:id/",edit_receipt,name="edit_receipt"),
+    path("notifications/<int:id>/",notification_profile,name="notification_profile"),
+    path("notification/edit/<int:id/",edit_notification,name="edit_notification"),
   
 ]

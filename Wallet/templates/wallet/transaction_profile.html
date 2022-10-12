@@ -1,5 +1,10 @@
-{%load static %}
+<!-- {%load static %}
 <h1>{{transaction.recipient}} {{transaction.origin}}</h1>
 <img src="{{transaction.profile_picture.url}}"/>
 <h2>Transaction_amount:{{transaction.Transaction_amount}}</h2>
-<h3>{{transaction.bonus_credit}}</h3>
+<h2>{{transaction.bonus_credit}}</h2> -->
+
+{%load static %}
+<h1>{{transaction.recipient}} {{origin}}</h1>
+<h2>Bonus_credit:{{transaction.bonus_credit}}</h2>
+<h2>{{transaction.transaction_amount}}</h2>

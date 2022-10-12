@@ -1,17 +1,18 @@
 <body>
     <html>
-        <table style="width: 600px; height: 300px; margin:auto;">
+        <div class="card" style="width: 30rem,;">
+            <table style="width: 90rem; height: 400px; margin:auto; border-collapse: collapse; width: 100%;">
     
-        <td style="border: 1px solid blueviolet; font-weight: bold;">Recipient</td>
-        <td style="border: 1px solid blueviolet; font-weight: bold;">Wallet</td>
-        <td style="border: 1px solid blueviolet; font-weight: bold;">Points</td>
+        <td style="border: 1px solid blueviolet; font-weight: bold; background-color: aqua;">Recipient</td>
+        <td style="border: 1px solid blueviolet; font-weight: bold; background-color: aqua;">Wallet</td>
+        <td style="border: 1px solid blueviolet; font-weight: bold; background-color: aqua;">Points</td>
        
     </th>
     <tr>{% for reward in rewards %}</tr>
    
-        <td style="border: 1px solid blueviolet;">{{ reward.recipient }}</td>
-        <td style="border: 1px solid blueviolet;">{{ reward.wallet }}</td>
-        <td style="border: 1px solid blueviolet;">{{ reward.points }}</td>
+        <td style="border: 1px solid blueviolet; font-weight: normal; background-color: aliceblue;">{{ reward.recipient }}</td>
+        <td style="border: 1px solid blueviolet; font-weight: normal; background-color: aliceblue;">{{ reward.wallet }}</td>
+        <td style="border: 1px solid blueviolet; font-weight: normal; background-color: aliceblue;">{{ reward.points }}</td>
     {% endfor %}
  </table>
   

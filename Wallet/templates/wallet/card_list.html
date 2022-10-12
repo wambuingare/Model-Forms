@@ -3,18 +3,21 @@
 
 <body>
     <html>
-        <div class="card" style="width: 67rem;">
-        <table style="width: 600rem; height: 300px; margin:auto;">
+   
+         <div class="card" style="width: 30rem,;">
+         <table style="width: 90rem; height: 400px; margin:auto; border-collapse: collapse; width: 100%;">
     
-        <td style="border: 1px solid blueviolet;font-weight: bold;">Cardholder_name</td>
-        <td style="border: 1px solid blueviolet;font-weight: bold;">Expiry_date</td>
-        <td style="border: 1px solid blueviolet;font-weight: bold;">DateIssued</td>
+        <td style="border: 1px solid blueviolet;font-weight: bold; background-color: aqua;">Cardholder_name</td>
+        <td style="border: 1px solid blueviolet;font-weight: bold; background-color: aqua;">Expiry_date</td>
+        <td style="border: 1px solid blueviolet;font-weight: bold; background-color: aqua;">DateIssued</td> 
+        
+      
     </th>
     <tr>{% for card in cards %}</tr>
     
-        <td style="border: 1px solid blueviolet;">{{ card.cardholder_name }}</td>
-        <td style="border: 1px solid blueviolet;">{{ card.expiry_date }}</td>
-        <td style="border: 1px solid blueviolet;">{{ card.dateIssued }}</td>
+        <td style="border: 1px solid blueviolet;font-weight: normal; background-color: aliceblue;">{{ card.cardholder_name }}</td>
+        <td style="border: 1px solid blueviolet;font-weight: normal; background-color: aliceblue;">{{ card.expiry_date }}</td>
+        <td style="border: 1px solid blueviolet;font-weight: normal; background-color: aliceblue;">{{ card.dateIssued }}</td>
     {% endfor %}
 </table>
 </div>

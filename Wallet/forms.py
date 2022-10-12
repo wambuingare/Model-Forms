@@ -1,4 +1,4 @@
-from dataclasses import fields
+from dataclasses import field
 from pyexpat import model
 from django import forms
 from .models import Account, Card, Customer, Loan, Notification, Receipt, Reward, ThirdParty, Transaction, Wallet
