@@ -48,5 +48,7 @@ urlpatterns = [
     path("receipt/edit/<int:id/",edit_receipt,name="edit_receipt"),
     path("notifications/<int:id>/",notification_profile,name="notification_profile"),
     path("notification/edit/<int:id/",edit_notification,name="edit_notification"),
+
+    path("deposit/", AccountDepositView.as_view(), name="deposit-view"),
   
 ]

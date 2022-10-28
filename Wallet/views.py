@@ -1,4 +1,6 @@
-
+from rest_framework import views
+from rest_framework.response import Response
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect, render
 from .models import Account, Card, Customer, Loan, Notification, Receipt, Reward, ThirdParty, Transaction, Wallet, models 
 from .forms import AccountRegistrationForm, CardRegistrationForm, CustomerRegistrationForm, LoanRegistrationForm, NotificationRegistrationForm, ReceiptRegistrationForm, RewardRegistrationForm, ThirdpartyRegistrationForm, TransactionRegistrationForm, WalletRegistrationForm, forms
@@ -12,7 +14,7 @@ def register_customer(request):
         
     else:
         form =CustomerRegistrationForm()
-        return render(request,"wallet/register_customer.html",{'form':form})
+    return render(request,"wallet/register_customer.html",{'form':form})
 
 def list_customer(request):
     customers=Customer.objects.all()
@@ -81,7 +83,7 @@ def list_account(request):
 
 def account_profile(request,id):
     accounts = Account.objects.get(id=id)
-    return render(request,"wallet/account_profile.html",{'account':account})
+    return render(request,"account_profile.html",{'account':accounts})
 
 
 def edit_account(request,id):
@@ -250,6 +252,18 @@ def register_reward(request):
 def list_reward(request):
     rewards=Reward.objects.all()
     return render(request,"wallet/reward_list.html",{'rewards':rewards})
+
+class AccountDepositView(views.APIView):
+    def post(self, request, format=None):       
+      account_id = request.data["account_id"]
+      amount = request.data["amount"]
+      
+      account = Account.objects.get(id=account_id)
+      return Response("Account Not Found", status=404)
+      
+      message, status = account.deposit(amount)
+      return Response(message, status=status)
+
 
 
   

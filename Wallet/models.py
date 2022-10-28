@@ -17,7 +17,7 @@ class Customer(models.Model):
         ('F', 'Female'),
     )
      gender = models.CharField(max_length=2, choices=GENDER_CHOICES, null=True)
-     nationality =models.CharField(max_length=30)
+     nationality =models.CharField(default=1,max_length=30)
      occupation=models.CharField(max_length=30)
    
      
@@ -37,6 +37,19 @@ class Account(models.Model):
      account_number = models.IntegerField(null=True)
      balance = models.IntegerField(null=True)
      description = models.TextField(null=True)
+     
+def deposit(self, amount):
+     if amount <= 0:
+          message =  "Invalid amount"
+          status = 403
+     else:
+           self.account_balance += amount
+           self.save()
+           message = f"You have deposited {amount}, your new balance is {self.account_balance}"
+           status = 200
+     return message, status
+
+
 
 class Transaction(models.Model):
      recipient = models.URLField(null=True)
